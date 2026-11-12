@@ -1,0 +1,1430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover personalised aesthetic, medical and wellness care at SKIN111. Explore specialist-led treatments in Dubai and Abu Dhabi and book a consultation.">
+<meta name="theme-color" content="#F8F6F0">
+<title>SKIN111 | A More Considered Approach to Aesthetics & Wellness</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #C5B172;
+  --gold-dark: #8F7949;
+  --gold-light: #E8DDBF;
+  --ink: #292720;
+  --ink-deep: #1B1A16;
+  --body: #504D45;
+  --muted: #777166;
+  --paper: #F8F6F0;
+  --paper-deep: #EFEAE0;
+  --surface: #FFFDF8;
+  --line: #E2DCCF;
+  --white: #FFFFFF;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Manrope", Arial, sans-serif;
+  --container: 1300px;
+  --shadow: 0 18px 55px rgba(41,39,32,.09);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gold-dark);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 20px));
+  margin-inline: auto;
+}
+
+h1, h2, h3, h4, p { margin-top: 0; }
+
+h1, h2, h3, .serif {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -.025em;
+}
+
+h1 { font-size: clamp(46px, 6.2vw, 72px); }
+h2 { font-size: clamp(36px, 4.5vw, 52px); }
+h3 { font-size: 30px; }
+
+p { color: var(--body); }
+
+.section { padding: 108px 0; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: var(--gold-dark);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--gold-dark);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+
+.section-heading h2 { margin-bottom: 18px; }
+
+.section-heading p {
+  max-width: 650px;
+  margin-bottom: 0;
+  font-size: 17px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border: 1px solid var(--gold-dark);
+  background: var(--gold-dark);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  transition: .25s ease;
+}
+
+.button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  color: var(--ink);
+  background: transparent;
+  border-color: rgba(41,39,32,.35);
+}
+
+.button-outline:hover { color: var(--white); }
+
+.arrow { font-size: 19px; }
+
+/* Image handling and fallbacks */
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #E8DDBF, #BBA77B);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+
+.image-frame:hover img { transform: scale(1.035); }
+
+.image-frame img.image-failed {
+  display: none;
+}
+
+.image-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  color: var(--gold-dark);
+  font-family: var(--serif);
+  font-size: 25px;
+  text-align: center;
+  background: linear-gradient(145deg, #E8DDBF, #BBA77B);
+}
+
+.image-frame img:not(.image-failed) + .image-fallback {
+  display: none;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  background: rgba(248,246,240,.96);
+  border-bottom: 1px solid rgba(41,39,32,.09);
+  backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.brand-name {
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: .17em;
+}
+
+.brand-caption {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(17px, 2.5vw, 34px);
+}
+
+.main-nav a {
+  color: var(--body);
+  font-size: 14px;
+  font-weight: 700;
+  transition: color .2s ease;
+}
+
+.main-nav a:hover { color: var(--gold-dark); }
+
+.header-cta { white-space: nowrap; }
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  padding: 10px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr .9fr;
+  align-items: center;
+  gap: 55px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.hero-copy { max-width: 690px; }
+
+.hero h1 { margin-bottom: 24px; }
+
+.hero h1 em {
+  color: var(--gold-dark);
+  font-weight: 500;
+}
+
+.hero-description {
+  max-width: 570px;
+  margin-bottom: 32px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-image {
+  height: 510px;
+  border-radius: 220px 220px 4px 4px;
+  box-shadow: var(--shadow);
+}
+
+.hero-image img { object-position: center 35%; }
+
+.hero-image::after {
+  content: "SKIN111 · MEDICAL WELLNESS";
+  position: absolute;
+  right: 18px;
+  bottom: 20px;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  writing-mode: vertical-rl;
+}
+
+/* Trust strip */
+.trust-strip {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+.trust-item {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 24px;
+  border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.trust-item:last-child { border-right: 0; }
+
+.trust-value {
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.trust-label {
+  margin-top: 7px;
+  color: rgba(255,255,255,.75);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Treatment cards */
+.treatment-section { background: var(--surface); }
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.treatment-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: .25s ease;
+}
+
+.treatment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--gold);
+}
+
+.treatment-image {
+  height: 230px;
+}
+
+.treatment-image img { object-position: center; }
+
+.treatment-content { padding: 25px; }
+
+.treatment-card h3 {
+  margin-bottom: 12px;
+  font-size: 27px;
+}
+
+.treatment-card p {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--gold-dark);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+/* Story */
+.story-section { background: var(--paper-deep); }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  align-items: center;
+  gap: 85px;
+}
+
+.story-image {
+  min-height: 540px;
+  box-shadow: var(--shadow);
+}
+
+.story-image img { object-position: center; }
+
+.story-copy h2 { margin-bottom: 24px; }
+
+.story-copy p { font-size: 16px; }
+
+.story-points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.story-point {
+  padding: 17px;
+  border-left: 2px solid var(--gold);
+  background: rgba(255,255,255,.45);
+}
+
+.story-point strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.story-point span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Specialists */
+.specialist-section {
+  background: var(--ink-deep);
+  color: var(--white);
+}
+
+.specialist-section .eyebrow { color: var(--gold-light); }
+.specialist-section .eyebrow::before { background: var(--gold-light); }
+
+.specialist-section .section-heading p {
+  color: rgba(255,255,255,.68);
+}
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.doctor-card {
+  overflow: hidden;
+  background: #292720;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.doctor-image {
+  height: 350px;
+  background: #E8E4DC;
+}
+
+.doctor-image img {
+  object-position: center 20%;
+}
+
+.doctor-content { padding: 25px; }
+
+.doctor-content h3 {
+  margin-bottom: 7px;
+  font-size: 26px;
+}
+
+.doctor-content p {
+  margin-bottom: 0;
+  color: rgba(255,255,255,.68);
+  font-size: 14px;
+}
+
+/* Technology */
+.technology-section { background: var(--surface); }
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.technology-card {
+  padding: 34px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.technology-card h3 { margin-bottom: 15px; }
+
+.technology-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.technology-tags span {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  color: var(--body);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Home wellness */
+.homecare-section { background: var(--paper-deep); }
+
+.homecare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.homecare-image {
+  min-height: 440px;
+  box-shadow: var(--shadow);
+}
+
+.homecare-copy h2 { margin-bottom: 20px; }
+
+.homecare-copy p { font-size: 16px; }
+
+/* Consultation */
+.consultation-banner {
+  padding: 78px 0;
+  background: var(--gold-light);
+}
+
+.consultation-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.consultation-inner h2 {
+  max-width: 690px;
+  margin-bottom: 12px;
+}
+
+.consultation-inner p { margin-bottom: 0; }
+
+/* Locations */
+.locations-section { background: var(--paper); }
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.location-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.location-type {
+  color: var(--gold-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.location-card h3 {
+  margin: 12px 0 16px;
+  font-size: 28px;
+}
+
+.location-card p {
+  min-height: 76px;
+  font-size: 14px;
+}
+
+.location-detail {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--body);
+  font-size: 13px;
+}
+
+.location-detail a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--gold-dark);
+  font-weight: 800;
+}
+
+/* Footer */
+.site-footer {
+  padding: 70px 0 28px;
+  background: var(--ink-deep);
+  color: var(--white);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-brand .brand-caption { color: rgba(255,255,255,.55); }
+
+.footer-copy {
+  max-width: 390px;
+  margin-top: 22px;
+  color: rgba(255,255,255,.65);
+  font-size: 14px;
+}
+
+.footer-column h4 {
+  margin-bottom: 18px;
+  color: var(--gold-light);
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.footer-column a, .footer-column p {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+}
+
+.footer-column a:hover { color: var(--gold-light); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+}
+
+/* Mobile bar */
+.mobile-cta {
+  position: fixed;
+  z-index: 60;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(248,246,240,.97);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -8px 30px rgba(0,0,0,.08);
+}
+
+.mobile-cta .button {
+  min-height: 48px;
+  padding: 10px 8px;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .main-nav { gap: 15px; }
+  .main-nav a { font-size: 12px; }
+  .header-cta { padding-inline: 15px; }
+  .hero-inner { grid-template-columns: 1fr .85fr; }
+  .hero-image { height: 430px; }
+  .story-grid { gap: 45px; }
+  .doctor-image { height: 300px; }
+}
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 75px; }
+  .section { padding: 76px 0; }
+
+  .header-inner { min-height: 74px; }
+  .brand-name { font-size: 25px; }
+  .menu-toggle { display: block; }
+  .header-cta { display: none; }
+
+  .main-nav {
+    position: absolute;
+    top: 74px;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 20px 20px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .main-nav.is-open { display: flex; }
+
+  .main-nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 65px;
+    padding-bottom: 60px;
+  }
+
+  .hero-description { font-size: 16px; }
+  .hero-image {
+    height: 430px;
+    width: min(100%, 440px);
+    margin-inline: auto;
+  }
+
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .trust-item { min-height: 100px; }
+  .trust-item:nth-child(2) { border-right: 0; }
+  .trust-item:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+
+  .treatment-grid { grid-template-columns: 1fr 1fr; }
+  .treatment-image { height: 190px; }
+  .treatment-content { padding: 20px; }
+  .treatment-card h3 { font-size: 24px; }
+
+  .story-grid, .homecare-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .story-image { min-height: 400px; }
+  .doctor-grid { grid-template-columns: 1fr 1fr; }
+  .doctor-image { height: 280px; }
+  .technology-grid { grid-template-columns: 1fr; }
+
+  .consultation-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .location-grid { grid-template-columns: 1fr; }
+  .location-card p { min-height: auto; }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 20px;
+  }
+
+  .footer-brand { grid-column: 1 / -1; }
+  .mobile-cta { display: grid; }
+  body { padding-bottom: 70px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 46px; }
+  h2 { font-size: 37px; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .button { width: 100%; }
+  .hero-image { height: 360px; }
+
+  .treatment-grid, .doctor-grid { grid-template-columns: 1fr; }
+  .treatment-image { height: 230px; }
+  .doctor-image { height: 350px; }
+
+  .story-points { grid-template-columns: 1fr; }
+
+  .technology-card, .location-card { padding: 25px; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+
+  .footer-bottom { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="brand" href="#home" aria-label="SKIN111 homepage">
+      <span class="brand-name">SKIN111</span>
+      <span class="brand-caption">Medical Wellness</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation">☰</button>
+
+    <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+      <a href="#treatments">Treatments</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#specialists">Specialists</a>
+      <a href="#technology">Technology</a>
+      <a href="#locations">Locations</a>
+    </nav>
+
+    <a class="button header-cta" href="https://www.skin111.com/book-an-appointment">
+      Book a Consultation <span class="arrow">↗</span>
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+
+    <div class="hero-copy">
+      <span class="eyebrow">Aesthetics · Medical · Wellness</span>
+
+      <h1>Feel confident in a more <em>considered</em> approach to care.</h1>
+
+      <p class="hero-description">
+        Discover a connected approach to aesthetics, advanced treatments
+        and wellness, guided by experienced medical professionals and
+        shaped around your individual goals.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button" href="https://www.skin111.com/book-an-appointment">
+          Book Your Consultation <span class="arrow">↗</span>
+        </a>
+
+        <a class="button button-outline" href="#treatments">
+          Explore Treatments <span class="arrow">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="image-frame hero-image">
+      <img
+        src="https://skin111.com/api/wp-content/uploads/2026/10/banner-mobile1.png"
+        alt="SKIN111 aesthetic and wellness campaign photography"
+        fetchpriority="high"
+        onerror="this.classList.add('image-failed')"
+      >
+      <div class="image-fallback">SKIN111<br>Medical Wellness</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-strip" aria-label="SKIN111 at a glance">
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+      <span class="trust-value">2007</span>
+      <span class="trust-label">Established in Dubai</span>
+    </div>
+
+    <div class="trust-item">
+      <span class="trust-value">4.9</span>
+      <span class="trust-label">Published Google rating</span>
+    </div>
+
+    <div class="trust-item">
+      <span class="trust-value">5,000+</span>
+      <span class="trust-label">Published Google reviews</span>
+    </div>
+
+    <div class="trust-item">
+      <span class="trust-value">3</span>
+      <span class="trust-label">Clinic locations</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="section treatment-section" id="treatments">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Find your starting point</span>
+      <h2>Care that begins with what matters to you.</h2>
+      <p>
+        Whether your focus is skin, appearance, body goals or long-term
+        wellbeing, explore the areas of care available at SKIN111.
+        Your consultation helps determine which options may be appropriate.
+      </p>
+    </div>
+
+    <div class="treatment-grid">
+
+      <article class="treatment-card">
+        <div class="image-frame treatment-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/10/skin-rejuvenation-ba1.png"
+            alt="Skin rejuvenation treatment example"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Aesthetics & Skin</div>
+        </div>
+        <div class="treatment-content">
+          <h3>Aesthetics & Skin</h3>
+          <p>Explore injectables, skin treatments, rejuvenation and personalised aesthetic care.</p>
+          <a class="text-link" href="https://www.skin111.com/aesthetic-treatments">Explore Aesthetics ↗</a>
+        </div>
+      </article>
+
+      <article class="treatment-card">
+        <div class="image-frame treatment-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/10/asce-ba3.png"
+            alt="Skin treatment example"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Advanced Laser</div>
+        </div>
+        <div class="treatment-content">
+          <h3>Advanced Laser</h3>
+          <p>Discover device-based technologies for selected skin and aesthetic concerns.</p>
+          <a class="text-link" href="https://www.skin111.com/aesthetic-treatments">Explore Technologies ↗</a>
+        </div>
+      </article>
+
+      <article class="treatment-card">
+        <div class="image-frame treatment-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/10/homecare3.jpeg"
+            alt="SKIN111 wellness care in a home setting"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">IV Therapy</div>
+        </div>
+        <div class="treatment-content">
+          <h3>IV Therapy</h3>
+          <p>Learn about customised IV therapy options and wellness-focused consultations.</p>
+          <a class="text-link" href="https://www.skin111.com/">Explore IV Therapy ↗</a>
+        </div>
+      </article>
+
+      <article class="treatment-card">
+        <div class="image-frame treatment-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/10/emsculpt-ba1.png"
+            alt="Body contouring treatment example"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Weight & Body</div>
+        </div>
+        <div class="treatment-content">
+          <h3>Weight & Body</h3>
+          <p>Explore body contouring, weight management and selected body treatment options.</p>
+          <a class="text-link" href="https://www.skin111.com/">Explore Body Treatments ↗</a>
+        </div>
+      </article>
+
+      <article class="treatment-card">
+        <div class="image-frame treatment-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/10/homecare3.jpeg"
+            alt="SKIN111 home wellness service"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Wellness & Longevity</div>
+        </div>
+        <div class="treatment-content">
+          <h3>Wellness & Longevity</h3>
+          <p>Explore preventive health, diagnostics and wellness services designed around you.</p>
+          <a class="text-link" href="https://www.skin111.com/home-services">Explore Wellness ↗</a>
+        </div>
+      </article>
+
+      <article class="treatment-card">
+        <div class="image-frame treatment-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/08/dr-pompei.jpg"
+            alt="SKIN111 consultant plastic surgeon"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Plastic Surgery</div>
+        </div>
+        <div class="treatment-content">
+          <h3>Plastic Surgery</h3>
+          <p>Find information about surgical procedures and specialist consultation pathways.</p>
+          <a class="text-link" href="https://www.skin111.com/doctors">Meet the Specialists ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section story-section" id="approach">
+  <div class="container story-grid">
+
+    <div class="image-frame story-image">
+      <img
+        src="https://skin111.com/api/wp-content/uploads/2026/10/homecare3.jpeg"
+        alt="SKIN111 wellness professional providing a home treatment"
+        loading="lazy"
+        onerror="this.classList.add('image-failed')"
+      >
+      <div class="image-fallback">A Connected Approach to Care</div>
+    </div>
+
+    <div class="story-copy">
+      <span class="eyebrow">The SKIN111 approach</span>
+
+      <h2>More than a treatment. A more connected care experience.</h2>
+
+      <p>
+        Established in Dubai in 2007, SKIN111 brings aesthetics, medical
+        services and wellness together within one clinic experience.
+        The aim is to help each person find a considered path forward,
+        supported by consultation and individual treatment planning.
+      </p>
+
+      <p>
+        From skin and aesthetic concerns to body goals and preventive
+        wellness, the starting point is understanding your needs before
+        discussing suitable options.
+      </p>
+
+      <div class="story-points">
+        <div class="story-point">
+          <strong>Personalised planning</strong>
+          <span>Care conversations shaped around individual goals.</span>
+        </div>
+
+        <div class="story-point">
+          <strong>Multiple care disciplines</strong>
+          <span>Aesthetics, medical services and wellness.</span>
+        </div>
+
+        <div class="story-point">
+          <strong>Specialist access</strong>
+          <span>Meet the clinic's doctors and practitioners.</span>
+        </div>
+
+        <div class="story-point">
+          <strong>UAE locations</strong>
+          <span>Clinics in Dubai and Abu Dhabi.</span>
+        </div>
+      </div>
+
+      <a class="button" href="https://www.skin111.com/doctors">
+        Meet Our Doctors <span class="arrow">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPECIALISTS -->
+<section class="section specialist-section" id="specialists">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">People behind your care</span>
+      <h2>Expertise deserves a more personal introduction.</h2>
+      <p>
+        Choosing a clinic is also about understanding who may be involved
+        in your care. Explore the SKIN111 medical team, their specialties
+        and the consultation options available.
+      </p>
+    </div>
+
+    <div class="doctor-grid">
+
+      <article class="doctor-card">
+        <div class="image-frame doctor-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/08/dr-alex.jpg"
+            alt="Dr Alex Rubin"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Medical Specialist</div>
+        </div>
+        <div class="doctor-content">
+          <h3>Dr. Alex Rubin</h3>
+          <p>Consultant Plastic & Reconstructive Surgeon</p>
+        </div>
+      </article>
+
+      <article class="doctor-card">
+        <div class="image-frame doctor-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/08/dr-hardik.jpg"
+            alt="Dr Hardik Ganatra"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Medical Specialist</div>
+        </div>
+        <div class="doctor-content">
+          <h3>Dr. Hardik Ganatra</h3>
+          <p>Plastic Surgeon and Body Sculpting Specialist</p>
+        </div>
+      </article>
+
+      <article class="doctor-card">
+        <div class="image-frame doctor-image">
+          <img
+            src="https://skin111.com/api/wp-content/uploads/2026/08/dr-pompei.jpg"
+            alt="Dr Stefano Pompei"
+            loading="lazy"
+            onerror="this.classList.add('image-failed')"
+          >
+          <div class="image-fallback">Medical Specialist</div>
+        </div>
+        <div class="doctor-content">
+          <h3>Dr. Stefano Pompei</h3>
+          <p>Consultant & Reconstructive Plastic Surgeon</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div style="margin-top:35px">
+      <a class="button" href="https://www.skin111.com/doctors">
+        View the Medical Team <span class="arrow">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="section technology-section" id="technology">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Technology & treatment options</span>
+      <h2>Informed choices start with clear information.</h2>
+      <p>
+        SKIN111 lists a range of advanced aesthetic technologies and
+        treatment approaches. Suitability, expected outcomes and possible
+        risks should always be discussed with a qualified clinician.
+      </p>
+    </div>
+
+    <div class="technology-grid">
+
+      <article class="technology-card">
+        <h3>Advanced aesthetic technologies</h3>
+        <p>
+          Explore selected device-based treatment options available through
+          the clinic, including technologies used in skin and aesthetic care.
+        </p>
+
+        <div class="technology-tags">
+          <span>Ultherapy</span>
+          <span>Endolift</span>
+          <span>Fotona</span>
+          <span>PICO</span>
+          <span>HALO</span>
+          <span>BBL HERO</span>
+          <span>Morpheus</span>
+          <span>XERF</span>
+        </div>
+      </article>
+
+      <article class="technology-card">
+        <h3>Wellness beyond the clinic</h3>
+        <p>
+          SKIN111 also presents home and wellness services, including
+          selected IV therapy, diagnostics, physiotherapy and other
+          support services. Availability should be confirmed with the team.
+        </p>
+
+        <div class="technology-tags">
+          <span>IV Therapy</span>
+          <span>Diagnostics</span>
+          <span>Physiotherapy</span>
+          <span>Home Wellness</span>
+          <span>Longevity</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOME WELLNESS -->
+<section class="section homecare-section">
+  <div class="container homecare-grid">
+
+    <div class="homecare-copy">
+      <span class="eyebrow">SKIN111 at home</span>
+      <h2>Wellness that can meet you where you are.</h2>
+
+      <p>
+        Explore SKIN111's home wellness services, including selected
+        diagnostics, IV therapy, physiotherapy and other care options.
+        Speak with the team to understand service availability and
+        whether a home consultation is suitable for your needs.
+      </p>
+
+      <a class="button" href="https://www.skin111.com/home-services">
+        Explore Home Services <span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <div class="image-frame homecare-image">
+      <img
+        src="https://skin111.com/api/wp-content/uploads/2026/10/homecare3.jpeg"
+        alt="SKIN111 home wellness treatment"
+        loading="lazy"
+        onerror="this.classList.add('image-failed')"
+      >
+      <div class="image-fallback">SKIN111 at Home</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONSULTATION -->
+<section class="consultation-banner">
+  <div class="container consultation-inner">
+
+    <div>
+      <span class="eyebrow">Your next step</span>
+      <h2>Start with a conversation about your goals.</h2>
+      <p>Book a consultation and speak with the SKIN111 team.</p>
+    </div>
+
+    <a class="button" href="https://www.skin111.com/book-an-appointment">
+      Book a Consultation <span class="arrow">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="section locations-section" id="locations">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Visit SKIN111</span>
+      <h2>Find the clinic that works for you.</h2>
+      <p>
+        Choose from the SKIN111 locations in Dubai and Abu Dhabi.
+        Contact the relevant branch to confirm appointment availability.
+      </p>
+    </div>
+
+    <div class="location-grid">
+
+      <article class="location-card">
+        <span class="location-type">Abu Dhabi</span>
+        <h3>Yas Mall</h3>
+        <p>The Welcome Pavilion, Yas Island Retail, Abu Dhabi, UAE.</p>
+        <div class="location-detail">
+          <strong>Daily, 10am–10pm</strong><br>
+          <a href="tel:+97124499207">+971 2 449 9207</a><br>
+          <a href="tel:+971563005172">+971 56 300 5172</a>
+        </div>
+      </article>
+
+      <article class="location-card">
+        <span class="location-type">Dubai</span>
+        <h3>DIFC</h3>
+        <p>Unit G02, Building #5, The Gate Village 5, DIFC, Road 312, Dubai.</p>
+        <div class="location-detail">
+          <strong>Daily, 9am–10pm</strong><br>
+          <a href="tel:+971544488611">+971 54 448 8611</a><br>
+          <a href="tel:+97143437200">+971 4 343 7200</a>
+        </div>
+      </article>
+
+      <article class="location-card">
+        <span class="location-type">Dubai</span>
+        <h3>Palm Jumeirah Mall</h3>
+        <p>Shop NKM-B-1014, lower ground floor, opposite Life Pharmacy.</p>
+        <div class="location-detail">
+          <strong>Daily, 9am–10pm</strong><br>
+          <a href="tel:+971543359444">+971 54 335 9444</a><br>
+          <a href="tel:+97145542846">+971 4 554 2846</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <span class="brand-name">SKIN111</span>
+          <span class="brand-caption">Medical Wellness</span>
+        </a>
+
+        <p class="footer-copy">
+          A connected approach to aesthetics, medical services and wellness
+          in Dubai and Abu Dhabi.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <a href="#treatments">Treatments</a>
+        <a href="#approach">Our Approach</a>
+        <a href="#specialists">Specialists</a>
+        <a href="#technology">Technology</a>
+        <a href="https://www.skin111.com/home-services">Home Services</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Get in touch</h4>
+        <a href="https://www.skin111.com/book-an-appointment">Book a Consultation</a>
+        <a href="https://www.skin111.com/contact-us">Contact & Locations</a>
+        <a href="tel:+97143437200">Call SKIN111</a>
+        <p>DHA License No: 0002097</p>
+        <p>DOH License No: MF8490</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 SKIN111 Medical Wellness. All rights reserved.</span>
+      <span>Individual treatment suitability is determined through clinical consultation.</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- MOBILE CTA -->
+<div class="mobile-cta" aria-label="Quick contact actions">
+  <a class="button button-outline" href="tel:+97143437200">Call the Clinic</a>
+  <a class="button" href="https://www.skin111.com/book-an-appointment">Book Consultation</a>
+</div>
+
+<script>
+const menuToggle = document.querySelector(".menu-toggle");
+const navigation = document.querySelector(".main-nav");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navigation.classList.toggle("is-open");
+
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation" : "Open navigation"
+  );
+
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+navigation.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navigation.classList.remove("is-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* Keep a visible fallback if an image cannot be loaded */
+document.querySelectorAll(".image-frame img").forEach((img) => {
+  img.addEventListener("error", () => {
+    img.classList.add("image-failed");
+  });
+
+  if (img.complete && img.naturalWidth === 0) {
+    img.classList.add("image-failed");
+  }
+});
+</script>
+
+</body>
+</html>
